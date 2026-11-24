@@ -15,6 +15,15 @@
         "name": "Jesse Vincent",
         "email": "jesse@fsck.com"
       }
+    },
+    {
+      "name": "signal-forge",
+      "description": "Extract sources into standalone, executable cards, let an advisory panel decide, rebuild one cited system with an HTML report.",
+      "version": "0.3.0",
+      "source": "./plugins/signal-forge",
+      "author": {
+        "name": "Christopher Terry (ELYCIUM)"
+      }
     }
   ]
 }

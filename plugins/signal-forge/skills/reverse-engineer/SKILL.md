@@ -33,11 +33,11 @@ Do NOT use for:
 
 1. **Preflight & Context Discovery**:
   * Validate input format and verify required input fragments exist.
-  * Check for upstream signal-forge inputs: Architect-Extractor cards (`@Frag` loci) and a panel RECONSTRUCTION DIRECTIVE. If raw fragments arrive with no cards, assign fragment IDs (A, B, C… in the order received) and cite loci as `@FragA:P3`. If no directive exists, offer to run `get-more-perspectives` first, or proceed without one if the user declines.
+  * Check for upstream signal-forge inputs: extraction cards (a `card_id` header and `@Frag` loci, often in `forge-output/<run-slug>/cards/`) and a panel RECONSTRUCTION DIRECTIVE (`directive.md`). If raw fragments arrive with no cards, assign fragment IDs (A, B, C… in the order received) and cite loci as `@FragA:P3`. If no directive exists, offer to run `get-more-perspectives` first, or proceed without one if the user declines.
 
 2. **Core Analytical Steps**:
-  * **Step 2.1**: Take in the Extractor cards. If none exist, extract key entities, parameters, and constraints from the input fragments with `@Frag` loci.
-  * **Step 2.2**: Evaluate fragments against operational principles, clustering by structural type (schemas, pipelines, personas, prompts).
+  * **Step 2.1**: Take in the extraction cards, reading the card index first. If none exist, extract key entities, parameters, and constraints from the input fragments with `@Frag` loci.
+  * **Step 2.2**: Cluster cards by `card_type` (role, procedure, schema, policy, decision, action, method, evaluation, fallback, question). Leave out `excluded_cards`. Treat `question` cards as gaps unless a ruling or user decision answers them.
   * **Step 2.3**: Trace integration points, detect contradictory constraints, and reconstruct the unified operational pipeline around the directive's `primary_spine` when one exists.
 
 3. **Validation & Quality Assurance**:
@@ -60,7 +60,7 @@ Provide a concise 2-sentence overview of the operational results, key findings, 
 
 Insert structured findings, pipeline graphs, or analysis here, using clear subheadings and markdown tables where appropriate:
 * **PRIMARY PIPELINE**: Step-by-step reconstructed execution graph.
-* **COMPONENT ATTRIBUTION**: Mapping of components back to source fragment IDs.
+* **COMPONENT ATTRIBUTION**: Mapping of components back to `card_id`s (and through them to fragment loci).
 * **SURFACED CONFLICTS**: Contradictory rules or sizing constraints surfaced without forced resolution (or with the panel ruling cited, if one applies).
 * **GAPS & MISSING LINKS**: Unspecified parameters or broken transitions.
 

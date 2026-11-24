@@ -1,9 +1,9 @@
 {
   "name": "signal-forge",
-  "version": "0.2.0",
-  "description": "Extract, decide, rebuild: turn messy sources into cited operational specs, let an advisory panel set direction, then reverse-engineer a unified system with conflicts and gaps surfaced.",
+  "version": "0.3.0",
+  "description": "Extract, decide, rebuild: turn messy sources into standalone, executable extraction cards using use-case templates, let an advisory panel set direction, then reverse-engineer a unified system with conflicts and gaps surfaced and an HTML report. Runs inside Claude; no API key.",
   "author": {
     "name": "Christopher Terry (ELYCIUM)"
   },
-  "keywords": ["extraction", "reverse-engineering", "advisory-panel", "specs", "pipelines"]
+  "keywords": ["extraction", "extraction-cards", "templates", "reverse-engineering", "advisory-panel", "specs", "pipelines"]
 }

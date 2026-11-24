@@ -82,19 +82,29 @@ Users can modify or expand the roster on demand:
 
 ## Chain Mode (signal-forge)
 
-Activate when the input is Architect-Extractor cards (items carry `@Frag` loci) or the user asks to drive a reverse-engineering run.
+Activate when the input is extraction cards (files or blocks with a `card_id` header and `@Frag` loci) or the user asks to drive a reverse-engineering run.
 
-1. Frame each decision from the cards as a yes/no question on one option (e.g., "Reconstruct around Fragment A's pipeline?", "Adopt Fragment A's ≤20-file limit?"). Group minor decisions into one panel.
-2. Run the panel in the standard output format.
-3. End with a **RECONSTRUCTION DIRECTIVE** block for `reverse-engineer`:
+1. Read the card index first, then the cards. Refer to cards only by `card_id` (e.g. `B-procedure-refunds`).
+2. Frame each decision as a yes/no question on one option that names the cards involved (e.g., "Build around `A-procedure-onboarding`?", "Adopt the 20-file limit in `A-policy-file-limits` over the 50-file limit in `B-policy-uploads`?"). Every pair of cards that set different values for the same thing is a decision. Group minor decisions into one panel.
+3. Run the panel in the standard output format.
+4. End with a **RECONSTRUCTION DIRECTIVE** block for `reverse-engineer`:
 
 ```text
 RECONSTRUCTION DIRECTIVE
-- primary_spine: [which fragment/pipeline to build around] DECISION @panel (vote)
+- primary_spine: [card_id(s) to build around] DECISION @panel (vote)
 - trust_order: [fragment priority, if decided] DECISION @panel (vote)
-- rulings: [each decided conflict] DECISION @panel (vote)
-- open_questions: [decisions the panel split on or declined]
+- rulings:
+  - [card_id vs card_id: what wins] DECISION @panel (vote)
+- excluded_cards: [card_ids the build should leave out, with reason] DECISION @panel (vote)
+- open_questions:
+  - id: q1
+    question: [one plain sentence]
+    cards: [card_ids involved]
+    split: [e.g. 2–2, or declined]
+    options: [short option A | short option B]
 - key_condition: [from the exec summary]
 ```
 
-Label every panel ruling `DECISION @panel (X–Y)`. A ruling is a choice, not a source fact; never present it as something a source said.
+Label every panel ruling `DECISION @panel (X–Y)`. A ruling is a choice, not a source fact; never present it as something a source said. Never edit a card to apply a ruling; the cards stay as extracted.
+
+Where files can be written, also save the panel review and directive to `forge-output/<run-slug>/directive.md` next to the `cards/` folder.
