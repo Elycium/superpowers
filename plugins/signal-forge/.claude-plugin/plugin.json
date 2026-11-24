@@ -1,0 +1,9 @@
+{
+  "name": "signal-forge",
+  "version": "0.2.0",
+  "description": "Extract, decide, rebuild: turn messy sources into cited operational specs, let an advisory panel set direction, then reverse-engineer a unified system with conflicts and gaps surfaced.",
+  "author": {
+    "name": "Christopher Terry (ELYCIUM)"
+  },
+  "keywords": ["extraction", "reverse-engineering", "advisory-panel", "specs", "pipelines"]
+}
