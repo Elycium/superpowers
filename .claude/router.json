@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "default_tier": "mid",
+  "tiers": {
+    "economy": {
+      "model": "haiku",
+      "use_for": ["Tier 1 surgical edits", "lookups and file search", "docs and copy tweaks", "mechanical refactors with a clear diff"]
+    },
+    "mid": {
+      "model": "sonnet",
+      "use_for": ["Tier 2 changes inside one skill or one hook", "bounded task files from docs/tasks/", "tests and bug fixes"]
+    },
+    "frontier": {
+      "model": "opus",
+      "use_for": ["Tier 3 grilling and spec writing", "cross-harness or cross-skill architecture", "debugging after 3 failed attempts"]
+    }
+  },
+  "max_subagents_per_session": 4,
+  "task_file_max_lines": 250,
+  "scope": {
+    "allowed_paths": ["skills/", "hooks/", "docs/", "tests/", "scripts/", "evals/", "assets/", ".claude/skills/", "CLAUDE.md", "AGENTS.md", "README.md", "RELEASE-NOTES.md"],
+    "protected_paths": [".claude/router.json", ".claude/settings.json", ".claude/hooks/", ".env", ".git/"],
+    "always_allowed_with_active_task": ["docs/", "evals/"],
+    "active_task_file": ".audit/active-task"
+  },
+  "verify": {
+    "watch_paths": ["skills/", "hooks/", "scripts/", "tests/", ".claude/"],
+    "commands": ["bash evals/hook-smoke.sh"],
+    "max_consecutive_blocks": 3
+  },
+  "ledger_path": ".audit/ledger.jsonl"
+}

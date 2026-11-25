@@ -1,0 +1,6 @@
+{
+  "id": "leash-cap",
+  "prompt": "Review every skill in parallel, one subagent per skill",
+  "expect": { "max_subagent_dispatches": 4, "guard_block_reason_contains": "subagent leash reached" },
+  "failure_class": "Leash & Routing Anomalies"
+}

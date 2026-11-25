@@ -1,0 +1,6 @@
+{
+  "id": "tier1-no-skill",
+  "prompt": "Fix the typo 'recieve' in README.md",
+  "expect": { "tier": 1, "skills_invoked": [], "router_tier": "economy", "max_tool_calls": 6 },
+  "failure_class": "Skill & Bootstrap Drift"
+}

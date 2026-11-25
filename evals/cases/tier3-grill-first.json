@@ -1,0 +1,6 @@
+{
+  "id": "tier3-grill-first",
+  "prompt": "Add a new harness integration for a CLI agent we haven't supported yet",
+  "expect": { "tier": 3, "first_skill": "grill-with-docs", "writes_before_signoff": [], "artifacts": ["docs/specs/<slug>.md", "docs/tasks/<slug>/task-01.md"] },
+  "failure_class": "Plan & Scope Deviation"
+}
